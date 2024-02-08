@@ -8,20 +8,26 @@ namespace ChilloxBurger
 {
     public abstract class AbstractBurger : IBurger
     {
-        public abstract decimal cost();
+        protected string burgerType;
+        protected decimal chickenCost = 100;
+        protected decimal beefCost = 120;
+        protected decimal vegetableCost = 80;
+
+        protected decimal BunCost;
+        protected decimal CheeseCost;
+        protected decimal SpicyCost;
+        protected decimal FrenchFriesCost;
+        protected decimal ShakesCost;
+
+        protected decimal chickenBurgerCost;
+        protected decimal beefBurgerCost;
+        protected decimal vegetableBurgerCost;
+
+        public abstract decimal cost(decimal cost);
 
         public virtual void display()
         {
             Console.WriteLine("Welcome to Chillox Burger.");
         }
-
-        //public abstract string BurgerSelect();
-        //public abstract string BunSelect();
-        //public abstract string cheeseSelect();
-        //public abstract string spicySelect();
-        //public abstract string frenchFriesSelect();
-        //public abstract string shakesSelect();
-
-
     }
 }

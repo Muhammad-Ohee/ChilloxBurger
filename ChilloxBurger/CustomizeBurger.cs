@@ -6,32 +6,37 @@ using System.Threading.Tasks;
 
 namespace ChilloxBurger
 {
-    public class ChickenBurgerCost
+    public class CustomizeBurger
     {
-        private decimal chickenCost;
-        public ChickenBurgerCost() 
+        public int selectBun()
         {
             Console.WriteLine("Which Bun: Sesame Bun(0) or Brioche Bun(1)");
             string bun = Console.ReadLine();
             int bunNumber;
             Int32.TryParse(bun, out bunNumber);
-            //Console.WriteLine(bunNumber);
+            return bunNumber;
+        }
 
-
+        public int selectCheese()
+        {
             Console.WriteLine("How much cheese: Less Sauce(0) or Regular Sauce(1) or More Sauce(2)");
             string cheese = Console.ReadLine();
             int cheeseNumber;
             Int32.TryParse(cheese, out cheeseNumber);
-            //Console.WriteLine(cheeseNumber);
+            return cheeseNumber;
+        }
 
-
+        public int selectSpicy()
+        {
             Console.WriteLine("How much spicy: Mild(0) or Spicy(1) or Very Spicy(2) or Naga(3)");
             string spicy = Console.ReadLine();
             int spicyNumber;
             Int32.TryParse(spicy, out spicyNumber);
-            //Console.WriteLine(spicyNumber);
+            return spicyNumber;
+        }
 
-
+        public int selectFrenchFries()
+        {
             Console.WriteLine("Wanna try out french fries: Yes or No");
             string frenchFries = Console.ReadLine().ToUpper();
             int frenchFriesNumber = 0;
@@ -40,10 +45,12 @@ namespace ChilloxBurger
                 Console.WriteLine("Small(1) or Big(2)?");
                 string frenchFriesSize = Console.ReadLine();
                 Int32.TryParse(frenchFriesSize, out frenchFriesNumber);
-                //Console.WriteLine(frenchFriesNumber);
             }
+            return frenchFriesNumber;
+        }
 
-
+        public int selectShakes()
+        {
             Console.WriteLine("Have some cold shakes: Yes or No");
             string shakes = Console.ReadLine().ToUpper();
             int shakesNumber = 0;
@@ -52,19 +59,20 @@ namespace ChilloxBurger
                 Console.WriteLine("Cold(1) or Oreo(2) or Munch(3)?");
                 string shakesType = Console.ReadLine();
                 Int32.TryParse(shakesType, out shakesNumber);
-                //Console.WriteLine(shakesNumber);
             }
-
-            ChickenBurger chickenBurgerCost = new ChickenBurger(bunNumber, cheeseNumber, spicyNumber, frenchFriesNumber, shakesNumber);
-            decimal cost = chickenBurgerCost.cost();
-            this.chickenCost = cost;
-
-            //Console.WriteLine($"Your total cost is: {cost}");
+            return shakesNumber;
         }
 
-        public decimal getCost()
+        public int[] getCustomizeArray()
         {
-            return this.chickenCost;
+            int[] customizationArray = new int[5];
+            customizationArray[0] = selectBun(); // 0 or 1
+            customizationArray[1] = selectCheese(); // 0 or 1 or 2
+            customizationArray[2] = selectSpicy(); // 0 or 1 or 2 or 3
+            customizationArray[3] = selectFrenchFries(); // 1 or 2
+            customizationArray[4] = selectShakes(); // 1 or 2 or 3
+
+            return customizationArray;
         }
     }
 }

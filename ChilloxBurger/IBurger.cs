@@ -9,6 +9,6 @@ namespace ChilloxBurger
     public interface IBurger
     {
         void display();
-        decimal cost();
+        decimal cost(decimal cost);
     }
 }

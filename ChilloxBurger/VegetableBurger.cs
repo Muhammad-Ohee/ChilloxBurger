@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ChilloxBurger
 {
-    public class ChickenBurger : AbstractBurger
+    public class VegetableBurger : AbstractBurger
     {
-        public ChickenBurger(string burgerType)
+        public VegetableBurger(string burgerType)
         {
             this.burgerType = burgerType;
         }
@@ -19,17 +18,18 @@ namespace ChilloxBurger
             Console.WriteLine($"Please Select {this.burgerType} Burger Property.");
         }
 
-        public ChickenBurger(CustomizeBurger customizeBurger, CostManager costManager)
+        public VegetableBurger(CustomizeBurger customizeBurger, CostManager costManager)
         {
             int[] resultArray = customizeBurger.getCustomizeArray();
             decimal customizationCost = costManager.customizationCost(resultArray);
-            chickenBurgerCost = costManager.chickenBurgerCost(customizationCost);
-            Console.WriteLine($"Your chicken burger cost is {chickenBurgerCost}");
+            vegetableBurgerCost = costManager.vegetableBurgerCost(customizationCost);
+            Console.WriteLine($"Your vegetable burger cost is {vegetableBurgerCost}");
         }
-        
+
+
         public override decimal cost(decimal cost)
         {
-            decimal totalCost = chickenCost +
+            decimal totalCost = beefCost +
                                 this.BunCost +
                                 this.CheeseCost +
                                 this.SpicyCost +

@@ -7,6 +7,10 @@ namespace ChilloxBurger
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Chillox Burger.");
+
+            CustomizeBurger customizeBurger = new CustomizeBurger();
+            CostManager costManager = new CostManager();
+
             bool love = true;
             while (love)
             {
@@ -17,16 +21,14 @@ namespace ChilloxBurger
                 string answer = Console.ReadLine().ToUpper();
                 if (answer == "YES")
                 {
-                    Console.WriteLine("You want \"chicken or beef\"?");
+                    Console.WriteLine("You want \"chicken or beef or vegetable\"?");
                     string answerBurger = Console.ReadLine().ToUpper();
                     if (answerBurger == "CHICKEN")
                     {
-                        ChickenBurger chickenBurger = new ChickenBurger("Chicken");
-                        chickenBurger.display();
-                        ChickenBurgerCost cost1 = new ChickenBurgerCost();
-                        Console.WriteLine();
-                        Console.WriteLine($"Your total cost of chicken burger is: {cost1.getCost()} BDT");
-                        Console.WriteLine();
+                        ChickenBurger chickenDisplay = new ChickenBurger("Chicken");
+                        chickenDisplay.display();
+                        ChickenBurger finalCostOfChickenBurger = new ChickenBurger(customizeBurger, costManager);
+
                         Console.WriteLine("Wanna buy another one? Yes or No");
                         string ans = Console.ReadLine().ToUpper();
                         if(ans == "YES")
@@ -44,12 +46,33 @@ namespace ChilloxBurger
                     }
                     else if (answerBurger == "BEEF")
                     {
-                        BeefBurger beefBurger = new BeefBurger("Beef");
-                        beefBurger.display();
-                        BeefBurgerCost cost1 = new BeefBurgerCost();
-                        Console.WriteLine();
-                        Console.WriteLine($"Your total cost of beef burger is: {cost1.getCost()} BDT");
-                        Console.WriteLine();
+                        BeefBurger beefDisplay = new BeefBurger("Beef");
+                        beefDisplay.display();
+
+                        BeefBurger finalCostOfBeefBurger = new BeefBurger(customizeBurger, costManager);
+
+                        Console.WriteLine("Wanna buy another one? Yes or No");
+                        string ans = Console.ReadLine().ToUpper();
+                        if (ans == "YES")
+                        {
+                            Console.Clear();
+                            continue;
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Thnak you for coming to chillox.");
+                            Console.WriteLine("Have a nice day, Sir.");
+                            love = false;
+                        }
+                    }
+                    else if (answerBurger == "VEGETABLE")
+                    {
+                        VegetableBurger beefDisplay = new VegetableBurger("Vegetable");
+                        beefDisplay.display();
+
+                        VegetableBurger finalCostOfVegetableBurger = new VegetableBurger(customizeBurger, costManager);
+
                         Console.WriteLine("Wanna buy another one? Yes or No");
                         string ans = Console.ReadLine().ToUpper();
                         if (ans == "YES")
@@ -83,9 +106,6 @@ namespace ChilloxBurger
                 }
                 //love = false;
             }
-
         }
-
-        
     }
 }
