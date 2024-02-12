@@ -8,34 +8,35 @@ namespace ChilloxBurger
 {
     public class CustomizeBurger
     {
-        public int selectBun()
+        List<int> customizedBurger = new List<int>();
+        public void selectBun()
         {
             Console.WriteLine("Which Bun: Sesame Bun(0) or Brioche Bun(1)");
             string bun = Console.ReadLine();
             int bunNumber;
             Int32.TryParse(bun, out bunNumber);
-            return bunNumber;
+            customizedBurger.Add(bunNumber);
         }
 
-        public int selectCheese()
+        public void selectCheese()
         {
             Console.WriteLine("How much cheese: Less Sauce(0) or Regular Sauce(1) or More Sauce(2)");
             string cheese = Console.ReadLine();
             int cheeseNumber;
             Int32.TryParse(cheese, out cheeseNumber);
-            return cheeseNumber;
+            customizedBurger.Add(cheeseNumber);
         }
 
-        public int selectSpicy()
+        public void selectSpicy()
         {
             Console.WriteLine("How much spicy: Mild(0) or Spicy(1) or Very Spicy(2) or Naga(3)");
             string spicy = Console.ReadLine();
             int spicyNumber;
             Int32.TryParse(spicy, out spicyNumber);
-            return spicyNumber;
+            customizedBurger.Add(spicyNumber);
         }
 
-        public int selectFrenchFries()
+        public void selectFrenchFries()
         {
             Console.WriteLine("Wanna try out french fries: Yes or No");
             string frenchFries = Console.ReadLine().ToUpper();
@@ -46,10 +47,10 @@ namespace ChilloxBurger
                 string frenchFriesSize = Console.ReadLine();
                 Int32.TryParse(frenchFriesSize, out frenchFriesNumber);
             }
-            return frenchFriesNumber;
+            customizedBurger.Add(frenchFriesNumber);
         }
 
-        public int selectShakes()
+        public void selectShakes()
         {
             Console.WriteLine("Have some cold shakes: Yes or No");
             string shakes = Console.ReadLine().ToUpper();
@@ -60,19 +61,18 @@ namespace ChilloxBurger
                 string shakesType = Console.ReadLine();
                 Int32.TryParse(shakesType, out shakesNumber);
             }
-            return shakesNumber;
+            customizedBurger.Add(shakesNumber);
         }
 
-        public int[] getCustomizeArray()
+        public List<int> getCustomizedList()
         {
-            int[] customizationArray = new int[5];
-            customizationArray[0] = selectBun(); // 0 or 1
-            customizationArray[1] = selectCheese(); // 0 or 1 or 2
-            customizationArray[2] = selectSpicy(); // 0 or 1 or 2 or 3
-            customizationArray[3] = selectFrenchFries(); // 1 or 2
-            customizationArray[4] = selectShakes(); // 1 or 2 or 3
+            selectBun(); // 0 or 1
+            selectCheese(); // 0 or 1 or 2
+            selectSpicy(); // 0 or 1 or 2 or 3
+            selectFrenchFries(); // 1 or 2
+            selectShakes(); // 1 or 2 or 3
 
-            return customizationArray;
+            return customizedBurger;
         }
     }
 }

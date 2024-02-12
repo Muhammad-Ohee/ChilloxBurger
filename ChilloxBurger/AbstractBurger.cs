@@ -8,7 +8,7 @@ namespace ChilloxBurger
 {
     public abstract class AbstractBurger : IBurger
     {
-        protected string burgerType;
+        protected string? burgerType;
         protected decimal chickenCost = 100;
         protected decimal beefCost = 120;
         protected decimal vegetableCost = 80;

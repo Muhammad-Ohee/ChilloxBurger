@@ -21,9 +21,9 @@ namespace ChilloxBurger
 
         public ChickenBurger(CustomizeBurger customizeBurger, CostManager costManager)
         {
-            int[] resultArray = customizeBurger.getCustomizeArray();
-            decimal customizationCost = costManager.customizationCost(resultArray);
-            chickenBurgerCost = costManager.chickenBurgerCost(customizationCost);
+            List<int> customizedList = customizeBurger.getCustomizedList();
+            decimal customizationCost = costManager.CustomizationCost(customizedList);
+            chickenBurgerCost = costManager.ChickenBurgerCost(customizationCost);
             Console.WriteLine($"Your chicken burger cost is {chickenBurgerCost}");
         }
         

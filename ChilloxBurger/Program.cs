@@ -104,7 +104,6 @@ namespace ChilloxBurger
                     Console.WriteLine("Wrong Input.");
                     Console.Clear();
                 }
-                //love = false;
             }
         }
     }

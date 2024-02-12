@@ -20,9 +20,8 @@ namespace ChilloxBurger
 
         public BeefBurger(CustomizeBurger customizeBurger, CostManager costManager)
         {
-            int[] resultArray = customizeBurger.getCustomizeArray();
-            decimal customizationCost = costManager.customizationCost(resultArray);
-            beefBurgerCost = costManager.beefBurgerCost(customizationCost);
+            decimal customizationCost = costManager.CustomizationCost(customizeBurger.getCustomizedList());
+            beefBurgerCost = costManager.BeefBurgerCost(customizationCost);
             Console.WriteLine($"Your beef burger cost is {beefBurgerCost}");
         }
 
